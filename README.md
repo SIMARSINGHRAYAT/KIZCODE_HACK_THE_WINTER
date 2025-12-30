@@ -28,7 +28,7 @@ This bifurcated design retains simplicity, modularity and scalability whilst ret
 
 ## Fourth Subheading
 
-![Technical Flow Diagram](TechnicalFlow.png)
+![Technical Flow Diagram](image/TechnicalFlow.png)
 
 *Figure 1: Technical Flow Diagram.*
 
@@ -47,7 +47,7 @@ This flow diagram should be equivalent to:
 
 ## Technical Flow at Customer-Side
 
-![Diagram](Flowchart.png)
+![Diagram](image/Flowchart.png)
 
 *Figure 2: Flowchart Representation.*
 
@@ -67,7 +67,7 @@ The provided flowchart showcases:
 
 ## Workflow Automation at the End-to-End Level
 
-![Diagram](Automation.png)
+![Diagram](image/Automation.png)
 
 *Figure 3: Automation Pipeline Workflow.*
 
@@ -80,13 +80,13 @@ End to end Workflow Automation Diagram, often referred to as Data Flow and Priva
 
 ## Data Flow Representation
 
-![Diagram](DFD.png)
+![Diagram](image/DFD.png)
 
 *Figure 4: DFD Illustration.*
 
 This DFD should illustrate: - Customer's Device to data flow to backend, till temporary processing and validation-Printer output flow Automatic data deletion after execution 
 
-![Diagram](Techstack.png)
+![Diagram](image/Techstack.png)
 
 *Figure 5: Tech Stack Demostration.*
 
@@ -121,7 +121,7 @@ These enhancements build directly on the foundation of Round-1 and are an exampl
 
 ## Applicability and Impact 
 
-![Diagram](Application.png)
+![Diagram](image/Application.png)
 
 *Figure 6: Application Overview.*
 
