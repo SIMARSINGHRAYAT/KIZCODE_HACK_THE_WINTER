@@ -147,4 +147,6 @@ To find code pls check -> code_associated (Folder).
 
 ## Proposed Framework Video Representation for Impact and Innovation Visualization
 
-[![Visualization Video]()]()
+[![Visualization Video](Phase2_images/Thumbnail.png)](Phase2_video/WhatsApp%20Video%202026-01-11%20at%2000.58.24.mp4)
+
+Pls Download the raw file to view.
