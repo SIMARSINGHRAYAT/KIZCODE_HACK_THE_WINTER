@@ -138,6 +138,12 @@ The framework takes advantage of the current infrastructure and requires very li
 
 8. Scalability from rural to urban services centres.
 
+## Code Instruction (for run):
+
+The code is based on flask meaning python app fundamental, it is linux based. The library associated are linux oriented so make sure to have linux system and a printer.
+
+To find code pls check -> code_associated (Folder).
+
 
 ## Proposed Framework Video Representation for Impact and Innovation Visualization
 
