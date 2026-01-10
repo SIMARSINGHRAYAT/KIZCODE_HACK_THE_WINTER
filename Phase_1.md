@@ -26,7 +26,7 @@ This bifurcated design retains simplicity, modularity and scalability whilst ret
 
 ---
 
-## Fourth Subheading
+## Technical Flow of Overall Architecture
 
 ![Technical Flow Diagram](Phase1_images/TechnicalFlow.png)
 
