@@ -4,7 +4,7 @@
 
 ## System Architecture
 
-![Technical Flow Diagram](img/System_Architecture.png)
+![Technical Flow Diagram](Phase2_images/System_Architecture.png)
 
 *Figure 1: System Architecture and Workflow Automation Pipeline Visualization.*
 
@@ -20,7 +20,7 @@ Overall, the clear separation of frame across interaction, control and execution
 
 ## End to End Workflow
 
-![Technical Flow Diagram](img/Flowchart.png)
+![Technical Flow Diagram](Phase2_images/Flowchart.png)
 
 *Figure 2: Flowchart for Visualization of End-to-End Workflow and Decisive Logic Representation.*
 
@@ -36,7 +36,7 @@ Thus, shows the replacement of manual steps of vendors with automated processes.
 
 ## Data Flow Diagram (DFD)
 
-![Technical Flow Diagram](img/DFD.png)
+![Technical Flow Diagram](Phase2_images/DFD.png)
 
 *Figure 3: Data Flow Diagram Associated with Proposed Framework.*
 
@@ -53,7 +53,7 @@ This Figure is the key for proof of a compliance with security and data minimiza
 
 ## Scalability & Failure Handling
 
-![Technical Flow Diagram](img/Handling.png)
+![Technical Flow Diagram](Phase2_images/Handling.png)
 
 *Figure 4: Scalability & Failure Handling Diagram*
 
@@ -68,105 +68,77 @@ Figure 4 is used to show that the scalability in Prinzo is not provided by compl
 
 ---
 
-## Technical Flow at Customer-Side
+## Layered Orchestration and Features Integration
 
-![Diagram](image/Flowchart.png)
+![Diagram](Phase2_images/Application.png)
 
-*Figure 2: Flowchart Representation.*
+*Figure 5: Application Offered Visualization.*
 
-In the customer's eyes, the system is inherently minimal and ephemeral. The customer scans the QR code, uploads a document, automatically selects valid print options, makes the payment and collects the printed item. The customer is never invited to create an account with the organisation or provide personal contact details. All of the configuration options shown to the customer are dynamically restricted, as defined by the printer's capabilities, so the customer cannot make invalid or unsupported requests.
+A layered orchestration model with system features integrated directly into the operational workflow is shown in Figure 5. Unlike traditional lists of features, this diagram shows how automation, security, and privacy features are turned on at each stage in the execution of the feature. The highest layer is the user interaction, where through the QR-based access, the user can enter the system without any friction.
 
-The provided flowchart showcases: 
-1.	QR scan and session start problem fixing, 
-2.	Document upload, 
-3.	Validation of files and estimation of page,  
-4.	Configuration selection for the printer, 
-5.	Price computation, 
-6.	Payment confirmation,
-7.	Order completion.
+Subsequent layers include backend orchestration, in which a system is implemented to enforce printer constraints using rule based automation and to manage the flow for sessions. The data handling layer strongly focuses on ephemera and data lifecycle, and this enforces privacy guarantees. Beneath this the execution layer is where it is shown interacting directly with the OS - level spooler and physical printer.
+
+By structuring the system as logical layers, Figure 5 shows a clear separation of responsibility, and at the same time very seamless coordination between object. Each layer brings its own unique contributions but with no conflict of concern, thus making the design very robust and maintainable.
+
+This figure is especially important for Phase - 2 evaluation in the sense that it emphasises system maturity and architectural discipline. It goes to show, the proposed framework is not only functional but also well considered so that it can support real time operation, extensibility and future enhancements such as intelligent document analysis or queue optimization.
 
 
 ---
 
-## Workflow Automation at the End-to-End Level
+# Research Note
 
-![Diagram](image/Automation.png)
+## Identified Problem Statements in Governance and Public Service Perspective
 
-*Figure 3: Automation Pipeline Workflow.*
+Public service delivery systems still depend on manual and fragmented printing workflows that introduce delays as well as inefficiencies into the delivery operation and citizen services.
 
-Prinzo is a closed loop automated system. Every action of a user results in the execution of a predefined process in the backend, and every change of process is actually verified using system logic and not human interpretation. The workflow ensures that once the payment is confirmed that the vendor receives a job that is ready to print which does not need any further clarification and configuration.
+The use of third party communication platforms in the informal exchange of documents leads to serious data privacy related chances, unauthorised access and non-compliance with the standards of information governance.
 
-End to end Workflow Automation Diagram, often referred to as Data Flow and Privacy-Preserving Design decomposes the selection of encryption algorithms and ciphering choices while designing system. Data Flow and Privacy-Preserving Design (often abbreviated Data Flow and Privacy-Design) breaks down the process of choosing encryption algorithms and ciphering options when designing a system. A salient technical attribute of Prinzo is a transient form of handling data. Documents uploaded by customers will only be saved on a temporary basis for processing/printing. On completion of the print job, the system automatically purges the document from the memory or temporary storage. This approach has the advantage of limiting exposure of data and makes the platform suitable for use in environments where privacy and data governance is paramount.
+Existing printing infrastructures have no automation or enforcement mechanisms at the systems level which leads to repeated configuration errors and inefficient use of public resources.
 
+High-volume citizen service environments like government offices, educational institutions, public facilitation centres, etc. encounter issues of scalability as well because they rely on human intervention.
 
----
-
-## Data Flow Representation
-
-![Diagram](image/DFD.png)
-
-*Figure 4: DFD Illustration.*
-
-This DFD should illustrate: - Customer's Device to data flow to backend, till temporary processing and validation-Printer output flow Automatic data deletion after execution 
-
-![Diagram](image/Techstack.png)
-
-*Figure 5: Tech Stack Demostration.*
-
-For the Hackathon, the implementation of Prinzo takes the form of a single-file application (app.py) in Python which entails the consolidation of frontend and backend logic. This methodology allows for quick prototyping and enhanced evaluation, and an unmistakable demonstration of automation logic. 
-
-The implementation of Round-1 is provided to demonstrate:
-
-- QR based service entry 
-- Simulation of vendor dashboard 
-- Flow of customer document upload 
-- Page count estimation 
-- Automated pricing 
-- Mock payment confirmation 
-- Print job simulation 
-
-As a part of identifiers, Java offers temporary file lifecycle management. The main goal of Round-1 is to validate the basic automation pipeline as opposed to complex optimisation. 
-Round 2: Planned Enhancements and Extensions for Round 1 
-While the basic system is implemented in Round - 1 of the project, a number of enhancements will be conducted during Round-2 of the project to increase technical depth and real-world applicability. 
-
-1.	Advanced printer integration by OS level drivers, 
-2.	Real - time print queue management, 
-3.	OCR based document analysing on automatic formatting, 
-4.	Multi-vendor Role Based access, 
-5.	Workflow Templates specific to government, 
-6.	Improved security control and auditing, 
-7.	Performance optimisation for a high-volume usage. 
-
-These enhancements build directly on the foundation of Round-1 and are an example of scalability, extensibility and long-term impact. 
+Missing standardized and deployable frameworks integrating the processes of providing digital services and physical printing infrastructure in a secure and accountable way.
 
 
 ---
 
-## Applicability and Impact 
+## Justification for Development of the Proposed Framework
 
-![Diagram](image/Application.png)
+The development of the proposed framework is compelled by the need to enhance the level of efficiency, transparency and accountability in public service delivery. While there have been intensive investments on digitization projects, there had been extremely little focus on the last phase of the service supply chain (the actual printing of the documents). Current solutions are generally cloud centric, application centric or have an operation complexity thus restricting their deployability in public sector. Accordingly, a framework was considered necessary that would allow for the printing of data in real time and with existing infrastructure, but with data minimization, accessibility and operational reliability principles taken into account. The proposed solution fulfils these requirements directly by automating printing workflows, while not setting further administrative or technological requirements.
 
-*Figure 6: Application Overview.*
+## Vision, Legitimacy and Affect on Society
 
-Prinzo is applicable in a number of real-world situations, such as: 
+The proposed framework is poor to national objectives of digital governance, citizen-centric service delivery and responsible use of technology. By cutting manual interventions and the unnecessary storage of data, the system contributes to establishing public trust and compliance. Its lightweight design and untrammelled infrastructure make it possible to deploy it in urban and rural service centres without a large capital investment.
 
-1.	Retail printing services,
-2.	Government services centres (Passport Aadhaar RTO), 
-3.	Educational institutions, 
-4.	Information centres for corporate information. 
+The framework is legitimate and socially impactful in enhancing the efficiency of operations and also protecting citizen data while supporting scalable operations. By transforming a critical and yet overlooked aspect of public service workflows, the proposed solution will have a significant contribution to inclusive, secure and efficient governance.
 
-The system makes services more efficient, decreases manual workload and better citizen/customer experiences through automation. 
+## Alignment to Digital India and e-Governance Initiatives
+
+The proposed framework has a direct bearing on the objectives of the Digital India and e-Governance missions for strengthening the delivery of last mile services. While initiatives by Digital India have made it successful to digitalize the record, application and service portal, the actual execution part, i.e., printing of documents remains still manual and inefficient. The framework adds layer on top of already existing e-Governance systems to allow for secure, automated and real-time printing on print without the necessary alteration of upstream digital platforms.
+
+By keeping manual intervention to the bare minimum and avoiding the sharing of third-party data, the solution has helped to prevail paperless governance concepts, data minimization and wins the citizen trust battle. Its browser accessible QR enabled access model promotes inclusivity and accessibility especially for public service centres where there is a diversity of user groups and thus digital service consumers. The framework improves the efficiency of operation while maintaining the compliance of data protection and information security norms which are central to Digital India.
+
+## Innovation and Impact
+
+The framework takes advantage of the current infrastructure and requires very little investment, and helps provide better service turnaround time. By adopting a privacy-by-design, it helps to improve data protection and citizen trust. The solution is scalable and deployable in different administrative settings and is in line with national priorities for efficient, transparent and inclusive governance.
+
+1. SDG 9 (Industry, Innovation, and Infrastructure): Vitalizing the Sustainable Supply Chain to Resistors and Efficient Services through Automation.
+
+2. SDG 10 - Reductions in Inequalities: Preliminary Service delivery without the integration of personal devices or applications.
+
+3. Governance and Indicators of Performance.
+
+4. Reduction in average turnaround time of service.
+
+5. Greater data privacy and data compliance compliance.
+
+6. Increased operation efficiency in public offices.
+
+7. Improved citizens satisfaction and trust.
+
+8. Scalability from rural to urban services centres.
 
 
----
+## Proposed Framework Video Representation for Impact and Innovation Visualization
 
-## Conclusion
-
-Prinzo provides a well-organised and automation-focused solution to a commonly overlooked and important service workflow. By removing the need for manual communication, imposing constraints at a system level, and ensuring privacy, the platform puts forth how messaging routine services can be transformed through the system and thoughtfulness. The project scores very well on the evaluation criteria of Hackathon as it provides a clear problem statement, has a practical solution, has a working implementation, and has a clear roadmap for enhancement in the future.
-
-
-## Demonstration Video
-
-[![Visualization Video](image/video_thumbnail.png)](video/visualization.mp4)
-
-*Click the image above to play the visualization video.*
+[![Visualization Video]()]()

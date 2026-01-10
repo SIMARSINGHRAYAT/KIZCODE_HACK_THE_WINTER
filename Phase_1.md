@@ -28,7 +28,7 @@ This bifurcated design retains simplicity, modularity and scalability whilst ret
 
 ## Fourth Subheading
 
-![Technical Flow Diagram](image/TechnicalFlow.png)
+![Technical Flow Diagram](Phase1_images/TechnicalFlow.png)
 
 *Figure 1: Technical Flow Diagram.*
 
@@ -47,7 +47,7 @@ This flow diagram should be equivalent to:
 
 ## Technical Flow at Customer-Side
 
-![Diagram](image/Flowchart.png)
+![Diagram](Phase1_images/Flowchart.png)
 
 *Figure 2: Flowchart Representation.*
 
@@ -67,7 +67,7 @@ The provided flowchart showcases:
 
 ## Workflow Automation at the End-to-End Level
 
-![Diagram](image/Automation.png)
+![Diagram](Phase1_images/Automation.png)
 
 *Figure 3: Automation Pipeline Workflow.*
 
@@ -80,13 +80,13 @@ End to end Workflow Automation Diagram, often referred to as Data Flow and Priva
 
 ## Data Flow Representation
 
-![Diagram](image/DFD.png)
+![Diagram](Phase1_images/DFD.png)
 
 *Figure 4: DFD Illustration.*
 
 This DFD should illustrate: - Customer's Device to data flow to backend, till temporary processing and validation-Printer output flow Automatic data deletion after execution 
 
-![Diagram](image/Techstack.png)
+![Diagram](Phase1_images/Techstack.png)
 
 *Figure 5: Tech Stack Demostration.*
 
@@ -121,7 +121,7 @@ These enhancements build directly on the foundation of Round-1 and are an exampl
 
 ## Applicability and Impact 
 
-![Diagram](image/Application.png)
+![Diagram](Phase1_images/Application.png)
 
 *Figure 6: Application Overview.*
 
@@ -144,6 +144,6 @@ Prinzo provides a well-organised and automation-focused solution to a commonly o
 
 ## Demonstration Video
 
-[![Visualization Video](image/video_thumbnail.png)](video/visualization.mp4)
+[![Visualization Video](Phase1_images/video_thumbnail.png)](Phase1_video/visualization.mp4)
 
 *Click the image above to download raw file and play the visualization video.*
