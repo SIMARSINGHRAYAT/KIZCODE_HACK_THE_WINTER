@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Fraud Firewall | Merchant Portal",
-  description: "Enterprise fraud detection simulation platform",
+  title: "KILZCODE | Secure Checkout",
+  description: "Advanced Payment Simulation Environment",
 };
 
 export default function RootLayout({

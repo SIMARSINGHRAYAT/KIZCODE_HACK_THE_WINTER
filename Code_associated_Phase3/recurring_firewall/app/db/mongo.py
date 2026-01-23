@@ -1,3 +1,4 @@
+import certifi
 from motor.motor_asyncio import AsyncIOMotorClient
 from ..core.config import settings
 from ..core.logger import logger
@@ -9,7 +10,8 @@ class MongoManager:
 
     async def connect(self):
         logger.info(f"Connecting to MongoDB at {settings.MONGO_URI}...")
-        self.client = AsyncIOMotorClient(settings.MONGO_URI)
+        # tlsAllowInvalidCertificates=True is used to bypass SSL errors in dev environments
+        self.client = AsyncIOMotorClient(settings.MONGO_URI, tlsCAFile=certifi.where(), tlsAllowInvalidCertificates=True)
         self.db = self.client[settings.DB_NAME]
         
         # Ping to verify

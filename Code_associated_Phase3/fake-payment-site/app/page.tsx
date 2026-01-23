@@ -19,6 +19,8 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [history, setHistory] = useState<HistoryItem[]>([]);
 
+  const [merchantsLoading, setMerchantsLoading] = useState(true);
+
   // Lifted State for Split Layout
   const [amount, setAmount] = useState<number>(49.99);
   const [currency, setCurrency] = useState<string>("USD");
@@ -33,12 +35,13 @@ export default function Home() {
     setCustomerId(`CUST-${Math.floor(Math.random() * 10000).toString().padStart(5, '0')}`);
 
     // Fetch merchants from backend
+    setMerchantsLoading(true);
     fetchMerchants().then(data => {
       setMerchants(data);
       if (data.length > 0) {
         // Optional: Select first one or leave null
       }
-    });
+    }).finally(() => setMerchantsLoading(false));
   }, []);
 
   // Update logic based on "Product" selection
@@ -125,11 +128,11 @@ export default function Home() {
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">
-              F
+            <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-indigo-500/30">
+              K
             </div>
-            <span className="font-bold text-xl tracking-tight text-slate-800">
-              {selectedMerchant ? selectedMerchant.name : "FraudFirewall"}
+            <span className="font-bold text-xl tracking-tight text-slate-900">
+              {selectedMerchant ? selectedMerchant.name : "KILZCODE"}
             </span>
           </div>
           <div className="flex items-center gap-4">
@@ -144,6 +147,25 @@ export default function Home() {
           selectedId={selectedMerchant?.id || ""}
           onSelect={handleMerchantSelect}
         />
+
+        {merchantsLoading && (
+          <div className="text-center py-10 animate-pulse text-slate-500">
+            Connecting to Payment Firewall...
+          </div>
+        )}
+
+        {!merchantsLoading && merchants.length === 0 && (
+          <div className="bg-red-50 border border-red-200 rounded-2xl p-8 text-center max-w-2xl mx-auto">
+            <div className="text-4xl mb-4">🔌</div>
+            <h3 className="text-xl font-bold text-red-800 mb-2">Backend Disconnected</h3>
+            <p className="text-red-600 mb-6">
+              Could not fetch merchants. Ensure the <code className="bg-red-100 px-1 py-0.5 rounded font-mono text-sm">recurring_firewall</code> backend is running on port 8000.
+            </p>
+            <button onClick={() => window.location.reload()} className="px-4 py-2 bg-white border border-red-300 rounded-lg text-red-700 font-medium hover:bg-red-50 transition-colors">
+              Retry Connection
+            </button>
+          </div>
+        )}
 
         {selectedMerchant && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start animate-in fade-in slide-in-from-bottom-4 duration-700">

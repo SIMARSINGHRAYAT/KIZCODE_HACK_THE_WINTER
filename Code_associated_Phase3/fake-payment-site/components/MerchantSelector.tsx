@@ -9,51 +9,52 @@ interface Props {
 
 export default function MerchantSelector({ merchants, selectedId, onSelect }: Props) {
     return (
-        <div className="mb-8 animate-in fade-in slide-in-from-top-2 duration-500">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-4">
-                <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Select Storefront</h2>
+        <div className="mb-10 animate-in fade-in slide-in-from-top-2 duration-500">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+                <h2 className="text-sm font-bold text-slate-400 uppercase tracking-widest">Select Experience</h2>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-1.5 bg-white/50 backdrop-blur-sm border border-slate-200/60 rounded-2xl shadow-sm">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {merchants.map((merchant) => {
                     const isSelected = selectedId === merchant.id;
-
-                    // Determine "Store" branding based on ID
-                    // const storeName = merchant.id.includes("clean") ? "StreamFlow" : ... // Removed, using merchant.name
                     const storeName = merchant.name;
 
-                    const icon = merchant.id.includes("clean") ? "🌊" :
-                        merchant.id.includes("dark") ? "💪" :
-                            merchant.id.includes("post") ? "🎬" :
-                                "📱";
+                    // Brand Colors based on name hash or specific IDs (Simulated for visual variety)
+                    const isMultimedia = merchant.id.includes("stream");
+                    const isFitness = merchant.id.includes("gym");
+                    const isNews = merchant.id.includes("news");
+
+                    const brandColor = isMultimedia ? "bg-indigo-500" : isFitness ? "bg-orange-500" : isNews ? "bg-blue-500" : "bg-slate-800";
+                    const brandShadow = isMultimedia ? "shadow-indigo-500/20" : isFitness ? "shadow-orange-500/20" : isNews ? "shadow-blue-500/20" : "shadow-slate-500/20";
 
                     return (
                         <button
                             key={merchant.id}
                             onClick={() => onSelect(merchant)}
-                            className={`relative group flex items-center gap-3 p-3 rounded-xl transition-all duration-300 ${isSelected
-                                ? "bg-white shadow-md ring-1 ring-slate-200"
-                                : "hover:bg-white/60 hover:shadow-sm"
+                            className={`relative group overflow-hidden p-4 rounded-2xl border transition-all duration-300 text-left h-24 flex flex-col justify-between ${isSelected
+                                ? "bg-white border-transparent ring-2 ring-indigo-600 shadow-xl shadow-indigo-100"
+                                : "bg-white/80 border-slate-200 hover:border-slate-300 hover:shadow-lg hover:-translate-y-1"
                                 }`}
                         >
-                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-lg shadow-sm transition-colors ${isSelected
-                                ? "bg-slate-900 text-white"
-                                : "bg-slate-100 text-slate-600 group-hover:bg-white group-hover:text-slate-900"
-                                }`}>
-                                {icon}
+                            <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <div className={`w-16 h-16 rounded-full blur-xl ${brandColor}`} />
                             </div>
 
-                            <div className="text-left">
-                                <div className={`text-sm font-bold leading-tight ${isSelected ? "text-slate-900" : "text-slate-600 group-hover:text-slate-900"}`}>
+                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold text-white shadow-lg ${brandColor} ${brandShadow} mb-2`}>
+                                {storeName.charAt(0)}
+                            </div>
+
+                            <div>
+                                <div className={`text-sm font-bold leading-tight ${isSelected ? "text-slate-900" : "text-slate-700"}`}>
                                     {storeName}
                                 </div>
-                                <div className="text-[10px] text-slate-400 font-medium">
-                                    {merchant.name.split(" ")[0]}...
+                                <div className="text-[10px] text-slate-400 font-medium truncate">
+                                    Premium Plan
                                 </div>
                             </div>
 
                             {isSelected && (
-                                <div className="absolute right-3 w-2 h-2 rounded-full bg-green-500 shadow-lg shadow-green-500/30 animate-pulse" />
+                                <div className="absolute inset-0 border-2 border-indigo-600 rounded-2xl pointer-events-none" />
                             )}
                         </button>
                     );
