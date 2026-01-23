@@ -1,203 +1,281 @@
-# Hybrid-RAG Adaptive Firewall for Recurring Payment Abuse Detection (Phase-III)
+# A Novel Hybrid-RAG-Based-RFMV Adaptive Firewall for Recurring Payment Abuse Detection  
+### with Merchant Behaviour Scoring (Phase-III)
+
+## Executive Summary (Startup + VC View)
+Recurring payments are rapidly becoming the dominant revenue and billing mechanism across digital commerce, streaming, SaaS, app subscriptions, and embedded-finance ecosystems. However, this shift has also expanded the attack surface for **recurring payment abuse**, where adversarial merchants and fraud actors exploit subscription-like payment flows to generate unauthorized, hidden, or persistently misleading recurring charges. Traditional controls struggle because they are often built on static rules and outdated heuristics that fail in modern environments where merchant tactics evolve continuously.
+
+This project proposes a **Hybrid-RAG-based adaptive firewall**—a production-oriented detection approach designed to identify **suspicious recurring/autopay behaviours** and **hidden-charge patterns** with improved accuracy, explainability, and operational stability. The solution integrates:
+
+- **Similarity-based recurrence detection**
+- **FMR-based monitoring signals (drift-sensitive behavioural monitoring)**
+- **Machine Learning classification**
+- **Retrieval-Augmented Generation (RAG)**
+- **RAG-based RFMV equation**
+- **Merchant Behaviour Scoring**
+
+The core business value is direct: **reduce false negatives**, mitigate recurring-abuse losses earlier, improve consumer trust, support compliance-driven explainability, and enable risk teams to respond faster with interpretable evidence.
+
+---
 
 ## Team
-
 **Team Name:** KILZCODE  
 **Team Members:**
-- Mr. Simar Singh Rayat
-- Mr. Sujal Thapa
-- Mr. Prins Kanyal
+- Mr. Simar Singh Rayat  
+- Mr. Sujal Thapa  
+- Mr. Prins Kanyal  
 
 ---
 
-## Problem Statement
+## Startup Narrative: What We Are Building
+We are building an **Adaptive Recurring-Payment Abuse Firewall**, designed for financial institutions, payment processors, subscription platforms, and fraud/risk teams. The firewall operates as a continuously learning risk layer that flags suspicious recurring payment patterns in near-real time while generating decision evidence to support auditability and operational actions.
 
-![Figure 1](Phase3_images/Venn.png)
+### Product Positioning (What This Is)
+This system behaves like a **fraud-grade security layer** for recurring payments, focused on:
 
-Figure 1 shows the 'Adversarial Merchants' are actively evading recurring payment detection by continuously shifting their behavioral patterns, which causes conventional static rule systems to fail. In real payment environments, merchant tactics evolve rapidly, and these frequent pattern shifts break rule-based filters that depend on stable heuristics. Additionally, behavioral clustering becomes unstable due to user drift, where customer payment behavior changes over time and disrupts previously learned groupings. Another major challenge is that recurring transaction streams often contain a low signal-to-noise ratio, meaning malicious indicators are subtle and buried within legitimate recurring payments. As a result, detection is delayed and systems suffer from higher false negatives, allowing suspicious or hidden-charge behavior to persist longer before being flagged.
+- detecting stealthy recurring abuse patterns,
+- handling rapidly evolving merchant evasion tactics,
+- maintaining stability under user behavioural drift,
+- and producing explainable outputs through retrieval-augmented reasoning.
 
-**Key challenges highlighted:**
-- Adversarial merchants bypass recurring payment detection
-- Patterns shift frequently, breaking static rules
-- Behavioral clustering becomes unstable due to user drift
-- Recurring data has low signal-to-noise
-- Outcomes include delayed detection and higher false negatives
-
----
-
-## Core Objective
-
-![Figure 2](Phase3_images/Topology.png)
-
-
-Recurring payments are rising rapidly, and attacks on subscription and autopay systems are becoming more stealthy and adaptive. Merchant patterns are increasingly designed to evade static detection, and user behavior drift causes clusters to break and become unreliable as a long-term detection strategy. Because of this, the system must not only detect suspicious recurring behaviors but also remain robust against changing conditions in both merchant tactics and user spending behavior. Therefore, the core objective of this project is to develop an adaptive and explainable firewall capable of detecting recurring payment abuse and hidden-charge activity with improved reliability in evolving environments, as shown in Figure 2.
-
-**Objectives of the proposed solution:**
-- Support rising recurring payments and modern threat trends
-- Detect stealthy and adaptive attacks
-- Prevent merchant evasion against static detection
-- Handle user behavior drift and cluster instability
-- Provide an adaptive and explainable detection firewall
+### Why It Wins (Key Differentiators)
+- **Adaptive by design:** does not rely solely on static thresholds.
+- **Hybrid detection engine:** combines multiple detection signals (Similarity + FMR + ML + RAG).
+- **Explainable detection:** RAG supports evidence-driven reasoning for decisions.
+- **Merchant Behaviour Scoring:** provides a structured way to rank suspicious merchant patterns.
+- **Phase-III evaluation loop:** ensures measurable targets and iterative tuning.
 
 ---
 
-## Literature Review
+## Market Problem and Why It Is Urgent
+Recurring payments have become highly profitable for legitimate businesses—but also highly profitable for adversarial actors. As recurring transaction volumes grow, the ability to hide malicious activity inside normal recurring flows increases. This creates operational problems:
 
-A literature review was conducted to support evaluation design and model benchmarking using widely adopted machine learning evaluation metrics, imbalance learning strategies, and diagnostic plotting approaches. The referenced works provide foundations for ROC analysis, precision-recall curves under imbalanced data, synthetic over-sampling (SMOTE), balanced accuracy, and correlation-based evaluation metrics.
+- Financial risk increases due to **persistent hidden-charge abuse**.
+- Customers face subscription confusion, reducing trust.
+- Risk teams are overloaded with noisy signals and false alerts.
+- Static rules break under merchant churn and evolving attack strategies.
 
----
+This problem is intensified by:
 
-## Proposed Methodology (Phase-I)
-
-Phase-I introduces the initial conceptual architecture for the Hybrid-RAG approach. The proposed design frames the problem as a recurring payment abuse detection task that requires both adaptive detection logic and explainability. The system architecture is represented as a Hybrid-RAG framework intended for malicious and hidden script assessment, capturing the need for a structured pipeline that can evolve with merchant strategies and user behavior changes.
-
-### Figure.3. Proposed Hybrid-RAG Architecture (Phase-I)
-
-![Figure A: Proposed Hybrid-RAG Architecture (Phase-I)](Phase3_images/Methodology_I.png)
-
-**Figure A (Detailed Description):**  
-This figure represents the Phase-I conceptual architecture of the proposed Hybrid-RAG (Retrieval Augmented Framework Architecture for Malicious and Hidden Script Assessment). It establishes the foundation of the solution, positioning RAG as a key layer for enhanced reasoning and explainability while acknowledging the real-world conditions where static rules fail. The figure reflects the need to build a system that can detect suspicious recurring payment behavior patterns while remaining interpretable and adaptable under adversarial dynamics.
-
----
-
-## Proposed Methodology (Phase-II)
-Phase-II refines and expands the architectural view of the Hybrid-RAG framework. The focus remains on detecting malicious or hidden charge patterns, but the architecture becomes more aligned toward operational integration and structured detection components. The Phase-II representation communicates how the proposed system moves beyond a conceptual approach into a more detailed and modular structure that supports hybrid decision logic.
-
-### Figure B — Proposed Hybrid-RAG Architecture (Phase-II)
-
-![Figure B: Proposed Hybrid-RAG Architecture (Phase-II)](Phase3_images/Methodology_II.png)
-
-**Figure B (Detailed Description):**  
-This figure represents the Phase-II refined architecture of the proposed Hybrid-RAG (Retrieval Augmented Framework Architecture for Malicious and Hidden Script Assessment). It strengthens the system-level organization and indicates how the framework is structured to operate under shifting merchant patterns and user drift. The Phase-II methodology emphasizes improved alignment between detection stages and explainability, showing the evolution from Phase-I into a more implementation-ready architecture.
+- **Adversarial merchant evasion**
+- **Frequent behavioural shifts**
+- **User drift causing unstable behavioural clustering**
+- **Low signal-to-noise recurring transaction streams**
+- **Delayed detection → higher false negatives**
 
 ---
 
-## Proposed Methodology (Phase-III) — End-to-End Execution
-Phase-III defines the complete end-to-end operational workflow for the proposed Hybrid-RAG detection pipeline. This phase represents how recurring subscription and autopay transaction data is ingested, processed, analyzed, and evaluated. Phase-III ensures the system can detect suspicious and hidden-charge activity through a hybrid approach that combines similarity-based signals, monitoring signals, machine learning classification, and retrieval augmentation for reasoning. It also includes the evaluation loop needed to validate performance targets and iteratively tune the pipeline if outcomes are not satisfactory.
+## Problem Statement (Technical + Business Perspective)
+Adversarial merchants actively evade recurring payment detection by continuously shifting behavioural patterns, which causes conventional static-rule systems to fail. In real payment environments, merchant tactics evolve rapidly, and these frequent pattern shifts break rule-based filters that depend on stable heuristics. Additionally, behavioural clustering becomes unstable due to **user drift**, where customer payment behaviour changes over time and disrupts previously learned groupings. Another major challenge is that recurring transaction streams often contain a **low signal-to-noise ratio**, meaning malicious indicators are subtle and buried within legitimate recurring payments. As a result, detection is delayed and systems suffer from higher false negatives, allowing suspicious or hidden-charge behaviour to persist longer before being flagged.
 
-### Phase-III Steps (Pipeline Definition)
-The Phase-III methodology follows these exact steps:
+![Figure 1: Problem framing and overlap of recurring abuse detection challenges](Phase3_images/Venn.png)
 
-- **Step 1: Collect recurring autopay transaction data**
-  - Includes merchant name conflicts, which is a known practical challenge in real-world recurring payment streams.
+**Figure 1 (Caption):**  
+*Problem framing: adversarial merchant evasion + drift-driven instability + low signal-to-noise conditions create delayed detection and high false negatives in recurring payment monitoring.*
 
-- **Step 2: Preprocess and label data**
-  - Data is labeled into:
-    - **Legit**
-    - **Suspicious / Hidden-charge**
+### Key Challenges (From PPT)
+- Adversarial merchants bypass recurring payment detection  
+- Patterns shift frequently, breaking static rules  
+- Behavioural clustering becomes unstable due to user drift  
+- Recurring transaction data has low signal-to-noise  
+- Outcomes include delayed detection and higher false negatives  
 
-- **Step 3: Run the proposed hybrid pipeline**
-  - The hybrid pipeline includes:
-    - **Similarity**
-    - **FMR**
-    - **ML**
-    - **RAG**
+---
 
-- **Step 4: Compute key performance metrics**
-  - Metrics computed include:
-    - **F1 Score**
-    - **FPR / FNR**
-    - **Latency**
-    - **Throughput**
+## Core Objective (Firewall Vision)
+Recurring payments are rising rapidly, and attacks on subscription and autopay systems are becoming increasingly stealthy and adaptive. Merchant patterns are designed to evade static detection, and user behaviour drift causes clusters to break, reducing long-term reliability. Therefore, the core objective is to develop an **adaptive and explainable firewall** capable of detecting recurring payment abuse and hidden-charge activity with improved reliability under evolving merchant tactics and drifting customer behaviour.
 
-- **Step 5: Validate targets**
-  - If targets are not met:
-    - tune the pipeline parameters
-    - repeat evaluation until the system stabilizes
+![Figure 2: System-level topology of the proposed firewall design](Phase3_images/Topology.png)
+
+**Figure 2 (Caption):**  
+*System topology view of the proposed adaptive firewall, emphasizing structured integration of hybrid detection and explainability under pattern drift.*
+
+### Objectives of the Proposed Solution
+- Support rising recurring payments and modern threat trends  
+- Detect stealthy and adaptive attacks  
+- Prevent merchant evasion against static detection  
+- Handle user behaviour drift and cluster instability  
+- Provide an adaptive and explainable detection firewall  
+
+---
+
+## Why a Hybrid Approach Is Required (Startup Rationale)
+A single-method approach cannot reliably detect recurring payment abuse in dynamic environments. Static rules fail under drift and evasion. Pure ML models can degrade when data shifts and often face explainability gaps. Pure similarity matching can miss adversarial behaviour that intentionally “looks normal.” Therefore, this project integrates a hybrid firewall strategy that increases resilience by combining multiple complementary signals.
+
+### Table 1 — Hybrid Components and Their Strategic Purpose
+| Module | Purpose | Startup Value |
+|--------|---------|--------------|
+| Similarity | Detect recurrence likeness and pattern similarity | Captures subscription-like consistency and duplicates |
+| FMR | Monitoring signal capturing behavioural change | Drift-sensitive detection under evolving patterns |
+| ML | Classification and decision boundary learning | Detects subtle signals beyond static thresholds |
+| RAG | Retrieval-augmented reasoning and explainability | Auditability and evidence-based decisions |
+| Merchant Behaviour Scoring | Structured risk ranking for merchant patterns | Improves prioritization and investigation efficiency |
+| RFMV (RAG-based) | Monitoring-aware feature framework | Strengthens robustness in low signal-to-noise streams |
+
+---
+
+## Literature Review (Evaluation Grounding)
+A literature review was conducted to support evaluation design and benchmarking using widely adopted machine learning evaluation metrics, imbalance learning strategies, and diagnostic plotting approaches. The referenced works establish reliable foundations for ROC analysis, precision-recall curves under imbalanced data, synthetic over-sampling (SMOTE), balanced accuracy, and correlation-based evaluation metrics.
+
+---
+
+## Proposed Methodology (Phase-I): Conceptual Hybrid-RAG Architecture
+Phase-I introduces the conceptual architecture for the Hybrid-RAG approach. The design frames recurring payment abuse detection as a task requiring adaptive logic and explainability. The architecture is represented as a Hybrid-RAG framework intended for malicious and hidden script assessment, reflecting the need for a structured detection pipeline that can evolve with merchant tactics and user behaviour changes.
+
+### Figure 3 — Proposed Hybrid-RAG Architecture (Phase-I)
+![Figure 3: Proposed Hybrid-RAG Architecture (Phase-I)](Phase3_images/Methodology_I.png)
+
+**Figure 3 (Detailed Caption):**  
+This figure presents the Phase-I conceptual architecture of the Hybrid-RAG framework for malicious and hidden script assessment. It establishes the foundation of the firewall vision by positioning RAG as a supporting layer for contextual reasoning and explainability. The Phase-I view highlights that static detection approaches are insufficient, and a structured yet adaptable architecture is required for recurring abuse monitoring.
+
+---
+
+## Proposed Methodology (Phase-II): Refined Hybrid-RAG Architecture
+Phase-II refines the Hybrid-RAG architecture toward an implementation-oriented view. The framework becomes more aligned with operational integration and modular detection logic. This phase communicates evolution from concept into a structured approach that supports hybrid decision-making under merchant behavioural shifts and user drift.
+
+### Figure 4 — Proposed Hybrid-RAG Architecture (Phase-II)
+![Figure 4: Proposed Hybrid-RAG Architecture (Phase-II)](Phase3_images/Methodology_II.png)
+
+**Figure 4 (Detailed Caption):**  
+This figure presents the Phase-II refined Hybrid-RAG architecture for malicious and hidden script assessment. It strengthens system-level organization and improves alignment between detection stages and explainability requirements. The Phase-II architecture supports recurring abuse detection under drift conditions and reflects a clearer modular structure suitable for Phase-III execution.
+
+---
+
+## Proposed Methodology (Phase-III): End-to-End Execution Pipeline (Production Mindset)
+Phase-III defines the full end-to-end operational workflow for the proposed Hybrid-RAG detection pipeline. This phase represents how recurring subscription and autopay transaction data is ingested, processed, analysed, and evaluated. It ensures the system detects suspicious and hidden-charge activity through hybrid integration of **Similarity**, **FMR**, **ML**, and **RAG**, while also measuring critical performance and operational readiness signals (F1 score, FPR/FNR, latency, throughput). The Phase-III validation loop formalizes iterative refinement through tuning when performance objectives are not achieved.
+
+### Table 2 — Phase-III Pipeline Definition
+| Step | Phase-III Action | Why It Matters for Deployment |
+|------|------------------|------------------------------|
+| Step 1 | Collect recurring autopay transaction data (including merchant name conflicts) | Real-world merchant inconsistency is common; must be handled early |
+| Step 2 | Preprocess and label data (legit vs suspicious/hidden-charge) | Enables measurable evaluation and consistent classification logic |
+| Step 3 | Run hybrid pipeline (Similarity + FMR + ML + RAG) | Hybrid integration increases detection reliability under drift |
+| Step 4 | Compute metrics (F1, FPR/FNR, latency, throughput) | Validates both predictive accuracy and operational feasibility |
+| Step 5 | Validate targets; tune and repeat | Ensures iterative stability and continuous improvement |
 
 ---
 
 ## Phase-III Workflow Flowchart
-To present the Phase-III pipeline in a clear operational sequence, the following flowchart depicts the complete execution structure from input data to evaluation and tuning.
+The following flowchart depicts the complete Phase-III execution structure from input transaction data to evaluation and tuning.
 
-### Figure 1 — Phase-III Flowchart (Execution Pipeline)
+### Figure 5 — Phase-III Execution Pipeline Flowchart
+![Figure 5: Phase-III Execution Pipeline Flowchart](Phase3_images/Flowchart.png)
 
-![Figure 1: Phase-III Execution Pipeline Flowchart](Phase3_images/Flowchart.png)
-
-**Figure 1 (Detailed Description):**  
-This flowchart illustrates the Phase-III end-to-end workflow for recurring payment abuse detection. It reflects the full operational structure: collecting recurring autopay transactions (including merchant conflicts), preprocessing and labeling transactions into legit versus suspicious/hidden-charge classes, executing the hybrid pipeline (Similarity + FMR + ML + RAG), and then computing key metrics such as F1 score, FPR/FNR, latency, and throughput. The final part of the flowchart highlights the validation loop where performance targets are checked, and the pipeline is tuned and re-evaluated if the detection objectives are not achieved.
-
----
-
-## Mathematical Abbreviation
-
-This section contains the mathematical abbreviations and metric terminology used throughout the evaluation and discussion of the proposed system. These abbreviations support analysis of classification outcomes and operational performance under real transaction conditions.
+**Figure 5 (Detailed Caption):**  
+This flowchart illustrates the Phase-III end-to-end workflow for recurring payment abuse detection. It shows how recurring autopay transactions are collected (including merchant name conflicts), then preprocessed and labeled into legit versus suspicious/hidden-charge classes. The hybrid pipeline is executed using Similarity analysis, FMR monitoring signals, ML classification, and RAG-based reasoning. Performance is then measured using F1 score, FPR/FNR, latency, and throughput, followed by a validation loop in which targets are checked and the pipeline is tuned and re-evaluated when necessary.
 
 ---
 
-## Merchant Behaviour Scoring
+## Mathematical Abbreviations (Operational and Evaluation Metrics)
+This section documents key mathematical abbreviations used throughout evaluation and reporting.
 
-Merchant behaviour scoring is a core analytical component used to quantify and rank merchant transaction behavior patterns. This scoring helps differentiate stable recurring subscriptions from suspicious or hidden-charge behaviors by capturing signals that indicate abnormal recurrence patterns, merchant inconsistencies, and changes in transaction characteristics across time. The scoring approach is aligned with the project’s objective of developing an adaptive detection firewall that can operate under frequent drift and adversarial modifications.
-
----
-
-## RAG Based RFMV Equation
-
-The system incorporates an RAG-based RFMV equation approach to combine structured features with retrieval-augmented reasoning. This component supports improved context awareness for recurring payment behaviors by incorporating monitoring-style feature dynamics and applying retrieval augmentation to strengthen confidence and interpretability. The RFMV representation is intended to enhance detection robustness in cases where static detection rules fail and where transaction behavior patterns are subtle or masked.
-
----
-
-## Results and Discussion
-
-The Results and Discussion section presents outputs of the experimental evaluation of the proposed Hybrid-RAG pipeline. The results demonstrate how the proposed architecture performs under recurring payment monitoring conditions and highlight the detection patterns observed across multiple result outputs.
-
-### Figure 2 — Result Output 1
-
-![Figure 2: Result Output 1](Phase3_images/Result1.png)
-
-**Figure 2 (Detailed Description):**  
-This result figure represents the first observed output from the evaluation stage of the proposed pipeline. It contributes to the Results and Discussion section by demonstrating how the system behaves when applied to recurring transaction data labeled into legit versus suspicious/hidden-charge categories. The figure supports analysis of detection trends and provides evidence of performance behavior under the hybrid detection approach.
+### Table 3 — Metrics and Abbreviations Used
+| Term | Meaning | Why It Matters |
+|------|---------|----------------|
+| F1 | F1 Score | Primary balanced metric for detection quality |
+| FPR | False Positive Rate | Controls alert noise and customer friction |
+| FNR | False Negative Rate | Controls missed abuse (high loss impact) |
+| Latency | Time to decision | Determines real-time feasibility |
+| Throughput | Volume processed | Ensures scalability in production |
+| RAG | Retrieval-Augmented Generation | Enables explainability and evidence-driven reasoning |
+| RFMV | Recency–Frequency–Monitor Value | Scoring framework used in the pipeline |
+| FMR | Frequency–Monitor–Recency signal | Drift monitoring and behavioural change capture |
 
 ---
 
-### Figure 3 — Result Output 2
-![Figure 3: Result Output 2](Phase3_images/Result2.png)
+## Merchant Behaviour Scoring (Risk Ranking Layer)
+Merchant Behaviour Scoring is a core analytical component used to quantify and rank merchant transaction behaviour patterns. This scoring supports differentiation of stable recurring subscriptions from suspicious or hidden-charge behaviours by capturing abnormal recurrence signals, merchant inconsistencies, and changes in transaction characteristics over time. For startup deployment, this risk ranking layer is crucial because it enables:
 
-**Figure 3 (Detailed Description):**  
-This figure provides a second experimental output in the Results and Discussion section. It supports the evaluation by presenting another perspective of system performance under the Phase-III hybrid pipeline execution, allowing comparative analysis of detection stability and classification behavior when monitoring recurring payment patterns with adversarial conditions.
+- prioritization of the highest-risk merchants,
+- reduced analyst workload,
+- and structured escalation paths for investigations.
 
----
-
-### Figure 4 — Result Output 3
-![Figure 4: Result Output 3](Phase3_images/Result3.png)
-
-**Figure 4 (Detailed Description):**  
-This figure represents the third recorded output from the evaluation of the Hybrid-RAG methodology. It contributes to understanding how suspicious or hidden-charge recurring patterns are surfaced by the pipeline and supports qualitative discussion around how the approach improves detection outcomes compared to static systems that struggle under drift and low signal-to-noise recurring transaction conditions.
+This component aligns with the firewall objective of remaining adaptive under frequent drift and adversarial pattern modifications.
 
 ---
 
-### Figure 5 — Result Output 4
-![Figure 5: Result Output 4](Phase3_images/Result4.png)
-
-**Figure 5 (Detailed Description):**  
-This figure represents an additional experimental outcome used in the Results and Discussion section. It supports performance reporting by illustrating detection behavior under real-world complexities, including merchant inconsistency and evolving recurring patterns. The output helps reinforce the value of using a hybrid approach that integrates similarity scoring, monitoring signals, machine learning, and retrieval augmentation.
+## RAG-Based RFMV Equation (Context-Aware Monitoring)
+The system integrates a RAG-based RFMV equation approach to combine structured monitoring features with retrieval-augmented reasoning. This component supports improved context awareness for recurring payment behaviours by incorporating monitoring-style feature dynamics and strengthening interpretability through retrieval support. The RFMV representation is intended to improve robustness in scenarios where recurring transaction indicators are subtle or intentionally masked by adversarial activity.
 
 ---
 
-### Figure 6 — Result Output 5
-![Figure 6: Result Output 5](Phase3_images/Result5.png)
+## Results and Discussion (Experimental Outputs)
+The results below provide multiple evaluation outputs of the Hybrid-RAG pipeline under recurring monitoring conditions, supporting performance discussion and comparative interpretation.
 
-**Figure 6 (Detailed Description):**  
-This result figure represents the fifth output included in the experimental results. It is included to strengthen the Results and Discussion section by providing broader output coverage of detection performance under Phase-III. This figure contributes additional evidence for system performance patterns and reinforces the need for adaptive, explainable detection when recurring data contains subtle malicious indicators.
+### Figure 6 — Result Output 1
+![Figure 6: Result Output 1](Phase3_images/Result1.png)
 
----
-
-## Comparative Performance Analysis
-
-The Comparative Performance Analysis section evaluates and positions the proposed approach against alternative detection perspectives. The objective is to highlight how the Hybrid-RAG strategy improves detection reliability in environments where:
-- merchant patterns evolve frequently,
-- user behavior drifts over time,
-- static rules break,
-- and signal quality is low.
-
-This section focuses on performance comparison using classification metrics and operational constraints, emphasizing the improvement and stability gained through the hybrid pipeline framework.
+**Figure 6 (Detailed Caption):**  
+This output represents the first experimental result of the Hybrid-RAG pipeline evaluation. It demonstrates the system’s observed behaviour when applied to recurring transactions labeled as legit versus suspicious/hidden-charge. The figure supports result interpretation by providing an initial view of how the hybrid detection mechanism responds under recurring payment monitoring conditions.
 
 ---
 
+### Figure 7 — Result Output 2
+![Figure 7: Result Output 2](Phase3_images/Result2.png)
+
+**Figure 7 (Detailed Caption):**  
+This output provides the second evaluation result used in the Results and Discussion section. It supports comparative interpretation of system stability under Phase-III execution, reinforcing the importance of hybrid integration when detecting recurring patterns under adversarial shifts and drift conditions.
+
+---
+
+### Figure 8 — Result Output 3
+![Figure 8: Result Output 3](Phase3_images/Result3.png)
+
+**Figure 8 (Detailed Caption):**  
+This output provides the third experimental result, supporting deeper discussion of detection behaviour under recurring transaction noise. It contributes evidence that the Hybrid-RAG approach surfaces suspicious and hidden-charge recurrence patterns in environments where rule-based approaches degrade.
+
+---
+
+### Figure 9 — Result Output 4
+![Figure 9: Result Output 4](Phase3_images/Result4.png)
+
+**Figure 9 (Detailed Caption):**  
+This output provides the fourth experimental result used to strengthen Phase-III reporting. It supports discussion of detection behaviour under merchant inconsistency and evolving recurrence characteristics, reinforcing the pipeline’s design objective of adaptivity and stability.
+
+---
+
+### Figure 10 — Result Output 5
+![Figure 10: Result Output 5](Phase3_images/Result5.png)
+
+**Figure 10 (Detailed Caption):**  
+This output provides the fifth experimental result in the Phase-III documentation set. It supports broader discussion of model behaviour across multiple results and reinforces the motivation for an explainable, adaptive firewall when malicious indicators remain subtle within recurring payment streams.
+
+---
+
+## Comparative Performance Analysis (Why This Wins)
+The comparative analysis emphasizes why the proposed Hybrid-RAG firewall improves reliability in environments where merchant patterns evolve frequently, user behaviour drifts over time, and static rule engines break due to heuristic instability. The hybrid pipeline design is structured to reduce missed detections (false negatives) while supporting explainability and operational evaluation through a repeated validation loop using F1, FPR/FNR, latency, and throughput.
+
+---
+
+## Investor Lens: What Makes This a Defensible Product
+From a startup perspective, recurring payment abuse is not only a technical problem but also a **trust, compliance, and margin problem**. A successful solution must be both high-performing and operationally deployable. This project’s defensibility comes from combining:
+
+- a structured hybrid pipeline (Similarity + FMR + ML + RAG),
+- explainability driven by retrieval augmentation,
+- scoring logic that supports merchant ranking and prioritization,
+- and a Phase-III validation loop aligned with performance and scale constraints.
+
+This positions the system as an adaptive firewall rather than a static “fraud rules list,” enabling stronger long-term resilience under adversarial behaviour.
+
+---
+
+## Figures Index
+### Table 4 — Figure Index (Phase-III Documentation)
+| Figure No. | File | Description |
+|-----------:|------|------------|
+| Figure 1 | `Phase3_images/Venn.png` | Problem framing and overlap of key detection challenges |
+| Figure 2 | `Phase3_images/Topology.png` | System topology of the proposed adaptive firewall |
+| Figure 3 | `Phase3_images/Methodology_I.png` | Phase-I conceptual Hybrid-RAG architecture |
+| Figure 4 | `Phase3_images/Methodology_II.png` | Phase-II refined Hybrid-RAG architecture |
+| Figure 5 | `Phase3_images/Flowchart.png` | Phase-III end-to-end execution pipeline |
+| Figure 6 | `Phase3_images/Result1.png` | Experimental output 1 |
+| Figure 7 | `Phase3_images/Result2.png` | Experimental output 2 |
+| Figure 8 | `Phase3_images/Result3.png` | Experimental output 3 |
+| Figure 9 | `Phase3_images/Result4.png` | Experimental output 4 |
+| Figure 10 | `Phase3_images/Result5.png` | Experimental output 5 |
+
+---
 
 ## References
-The following references support evaluation design, metric selection, imbalance learning, and classifier benchmarking:
-
 1. Fawcett, T. (2006). An introduction to ROC analysis. Pattern Recognition Letters, 27(8), 861–874.  
 2. Powers, D. M. W. (2011). Evaluation: From precision, recall and F-measure to ROC, informedness, markedness & correlation. Journal of Machine Learning Technologies, 2(1), 37–63.  
 3. Saito, T., & Rehmsmeier, M. (2015). The Precision-Recall plot is more informative than the ROC plot when evaluating binary classifiers on imbalanced datasets. PLOS ONE, 10(3), e0118432.  
@@ -222,4 +300,4 @@ The following references support evaluation design, metric selection, imbalance 
 ---
 
 ## Thank You
-Thank you for reviewing our proposed Hybrid-RAG framework and Phase-III execution pipeline.
+Thank you for reviewing our Hybrid-RAG-based RFMV adaptive firewall and Phase-III execution pipeline.
